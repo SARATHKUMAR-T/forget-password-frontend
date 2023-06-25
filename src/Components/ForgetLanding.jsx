@@ -4,9 +4,12 @@ import Wrapper from "../Wrapper/Wrapper";
 
 const ForgetLanding = () => {
   const [newPassword, setNewPassword] = useState();
+ const [repeatPassword,setRepeatPassword]= useState()
   const [message, setMessage] = useState();
   const navigate = useNavigate();
   const { id, token } = useParams();
+
+  // password Handler
   const resetPasswordHandler = async event => {
     event.preventDefault();
     const password = {
@@ -25,7 +28,6 @@ const ForgetLanding = () => {
     );
 
     const result = await data.json();
-    console.log(result)
     setMessage(result.message);
     if (result.newpassword) {
       setTimeout(()=>navigate('/'),2000)
@@ -64,6 +66,8 @@ const ForgetLanding = () => {
             <input
               type="password"
               id="repeatPassword"
+              value={repeatPassword}
+              onChange={(e)=>setRepeatPassword(e.target.value)}
               className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>

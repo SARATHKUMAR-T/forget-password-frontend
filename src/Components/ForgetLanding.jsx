@@ -17,7 +17,7 @@ const ForgetLanding = () => {
     };
 
     const data = await fetch(
-      `http://localhost:9000/reset-password/${id}/${token}`,
+      `https://forgot-password-1.netlify.app/reset-password/${id}/${token}`,
       {
         method: "POST",
         body: JSON.stringify(password),

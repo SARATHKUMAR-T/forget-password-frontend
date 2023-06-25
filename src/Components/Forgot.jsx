@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Wrapper from "../Wrapper/Wrapper";
 
 function Forgot() {
   const [email, setEmail] = useState();
   const [error, setError] = useState();
-  const navigate = useNavigate();
 
   const forgotHandler = async event => {
     event.preventDefault();
